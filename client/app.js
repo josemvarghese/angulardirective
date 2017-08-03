@@ -15,9 +15,10 @@ var app = angular.module("myApp", []);
 //     });
 // });
 
-app.controller('TestCtrl', function($scope) {
+app.controller('TestCtrl',['$scope', function($scope) {
   // console.log($scope)
-})
+  $scope.msg="  from jose";
+}]);
 app.directive('urlTwitter', function() {
   return {
      require: 'ngModel',
@@ -53,4 +54,10 @@ app.directive('urlTwitter', function() {
         }); 
      }
   };
+});
+app.directive('myInfoMsg',function(){
+    return{
+      // instead of template  we can use templateUrl  , that points to html file
+      template:"<strong>this is info message {{msg}}</strong>"
+    }
 });
